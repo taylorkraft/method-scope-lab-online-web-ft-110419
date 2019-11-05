@@ -1,14 +1,10 @@
 require_relative "../lib/catch_phrase.rb"
 require_relative "../lib/rescue_princess_peach.rb"
-require 'pry'
+require "spec_helper"
 
-
-RSpec.configure do |config|
-  config.expect_with :rspec do |expectations|
-    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+describe "#catch_phrase" do
+  it "puts out a catch phrase" do
+    phrase = "It's-a me, Mario!"
+    expect{catch_phrase(phrase)}.to output("It's-a me, Mario!\n").to_stdout
   end
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-  end
-
 end
